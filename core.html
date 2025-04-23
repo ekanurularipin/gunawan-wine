@@ -35,7 +35,51 @@
         <img src="assets/images/7.jpg" alt="pengantin" class="pengantin" />
         <p class="gowunbatang-bold">The Wedding Of</p>
         <h1>Wine & Gunawan</h1>
-        <div class="simply-countdown"></div>
+
+        <div class="col-10 mt-3">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="row mb-3">
+                <div class="col-3 m-0 p-1">
+                  <div
+                    class="card p-2 my-auto rounded-4"
+                    style="color: #8a6c5a"
+                  >
+                    <p class="p-0 m-0" id="hari"></p>
+                    Hari
+                  </div>
+                </div>
+                <div class="col-3 m-0 p-1">
+                  <div
+                    class="card p-2 my-auto rounded-4"
+                    style="color: #8a6c5a"
+                  >
+                    <p class="p-0 m-0" id="jam"></p>
+                    Jam
+                  </div>
+                </div>
+                <div class="col-3 m-0 p-1">
+                  <div
+                    class="card p-2 my-auto rounded-4"
+                    style="color: #8a6c5a"
+                  >
+                    <p class="p-0 m-0" id="menit"></p>
+                    Menit
+                  </div>
+                </div>
+                <div class="col-3 m-0 p-1">
+                  <div
+                    class="card p-2 my-auto rounded-4"
+                    style="color: #8a6c5a"
+                  >
+                    <p class="p-0 m-0" id="detik"></p>
+                    Detik
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="ayat">
         <p class="gowunbatang-bold judul appear">Surah Ar-Rum Ayat 21</p>
@@ -117,7 +161,7 @@
           <div class="tanggal">
             <p class="angka">27</p>
             <p class="teks">
-              Mingu <br />
+              Minggu <br />
               April <br />
               2025
             </p>
@@ -125,8 +169,8 @@
           <p class="garis">------------------</p>
           <p class="Lokasi">
             Lokasi Acara : <br />
-            Kampung Cipangasih RT/RW. 05/02, Gg. Cinta No.30 Desa Kalapagenep
-            Kecamatan Cikalong Kabupaten Tasikmalaya Jawa Barat
+            Madrasah Al-Barokah <br />
+            Cieunteung, Tasikmalaya
           </p>
         </div>
         <div class="resepsi appear">
@@ -134,7 +178,7 @@
           <div class="tanggal">
             <p class="angka">27</p>
             <p class="teks">
-              Mingu <br />
+              Minggu <br />
               April <br />
               2025
             </p>
@@ -142,16 +186,16 @@
           <p class="garis">------------------</p>
           <p class="Lokasi">
             Lokasi Acara : <br />
-            Kampung Cipangasih RT/RW. 05/02, Gg. Cinta No.30 Desa Kalapagenep
-            Kecamatan Cikalong Kabupaten Tasikmalaya Jawa Barat
+            Madrasah Al-Barokah <br />
+            Cieunteung, Tasikmalaya
           </p>
         </div>
       </div>
       <div class="lokasi">
         <h1 class="appear">Lokasi Acara</h1>
         <p class="appear">
-          Kampung Cipangasih RT/RW. 05/02, Gg. Cinta No.30 Desa Kalapagenep
-          Kecamatan Cikalong Kabupaten Tasikmalaya Jawa Barat
+          Madrasah Al-Barokah <br />
+          Cieunteung, Tasikmalaya
         </p>
 
         <iframe
@@ -197,7 +241,10 @@
       </div>
       <section class="bg-wakwak">
         <div class="container py-5">
-          <h1>Doa Restu Anda sangat berarti bagi kami.</h1>
+          <h1>
+            Doa Restu Anda <br />
+            sangat berarti bagi kami.
+          </h1>
           <div class="row text-center justify-content-center">
             <div class="col-md-10 col-12 mx-2">
               <div class="card rounded-3 p-3">
@@ -355,7 +402,7 @@
         </div>
       </div>
       <div class="penutup" id="penutup">
-        <img src="assets/images/2.jpg" alt="pengantin2" class="pengantin2" />
+        <img src="assets/images/2.JPG" alt="pengantin2" class="pengantin2" />
         <p class="gowunbatang-bold">
           Ungkapan terima kasih yang tulus dari kami apabila
           Bapak/Ibu/Teman-teman berkenan hadir dan memberikan do’a restu.
@@ -375,19 +422,31 @@
     </section>
 
     <script>
-      simplyCountdown(".simply-countdown", {
-        year: 2025, // required
-        month: 4, // required
-        day: 27, // required
-        hours: 8, // Default is 0 [0-23] integer
-        words: {
-          //words displayed into the countdown
-          days: { singular: "hari", plural: "hari" },
-          hours: { singular: "jam", plural: "jam" },
-          minutes: { singular: "menit", plural: "menit" },
-          seconds: { singular: "detik", plural: "detik" },
-        },
-      });
+      // waktu start
+      const countDownDate = new Date("April 27, 2025 00:00:00").getTime();
+      const x = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("hari").innerHTML = days;
+        document.getElementById("jam").innerHTML = hours;
+        document.getElementById("menit").innerHTML = minutes;
+        document.getElementById("detik").innerHTML = seconds;
+        document.getElementById("hari").style.color = "#8a6c5a";
+        document.getElementById("jam").style.color = "#8a6c5a";
+        document.getElementById("menit").style.color = "#8a6c5a";
+        document.getElementById("detik").style.color = "#8a6c5a";
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("Carasingkat").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+      // waktu end
     </script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
